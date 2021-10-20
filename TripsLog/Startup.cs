@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TripsLog.Models;
 
 namespace TripsLog
 {
@@ -24,6 +26,8 @@ namespace TripsLog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<TripsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TripsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
