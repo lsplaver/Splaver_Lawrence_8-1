@@ -1,3 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model TripListViewModel
+@{
+    ViewData["Title"] = "My Trip Log";
+    string userMessage = TempData?["UserMessage"]?.ToString() ?? "";
 }
+@if (userMessage != "")
+            {
+                <h2>@userMessage</h2>
+            }
+<a asp-controller="Trip" asp-action="Add">Add trip</a>
+<table class="table-bordered table-responsive">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Destination</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+            <td class="col-6">Accommodations</td>
+            <td class="col-6">Things To Do</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model.Trips)
+            {
+                <tr>
+                    <td>@t.Destination</td>
+                    <td>@t.StartDate.ToString("MM/dd/yyyy")</td>
+                    <td>@t.EndDate.ToString("MM/dd/yyyy")</td>
+                    <td class="col-6">
+                        <div class="row text-center">@t.Accommodation</div>
+                        <div class="row text-center">@t.AccommodationPhone</div>
+                        <div class="row text-center">@t.AccommodationEmail</div>
+                    </td>
+                    <td class="col-6">
+                        <div class="row text-center">@t.ThingToDo1</div>
+                        <div class="row text-center">@t.ThingToDo2</div>
+                        <div class="row text-center">@t.ThingToDo3</div>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

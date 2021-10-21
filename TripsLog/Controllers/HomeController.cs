@@ -11,9 +11,25 @@ namespace TripsLog.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private TripsContext context;
+
+        public HomeController(TripsContext ctx)
         {
-            return View();
+            context = ctx;
+        }
+
+        public ViewResult Index()
+        {
+            var trps = context.Trips.OrderBy(t => t.TripId).ToList();
+
+            // List<Trip> trips;
+
+            var model = new TripListViewModel
+            {
+                Trips = trps
+            };
+
+            return View(model);
         }
 
     }
