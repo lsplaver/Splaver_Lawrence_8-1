@@ -2,9 +2,12 @@
 @{ 
     ViewData["Title"] = "Add Trip - Page 2";
 }
-@section SubHead
+@if (TempData.Peek("Accommodation").ToString() != "")
 {
-    <h2>Add Info for @TempData.Peek("Accommodation")</h2>
+    @section SubHead
+    {
+        <h2>Add Info for @TempData.Peek("Accommodation")</h2>
+    }
 }
 
 <form asp-action="Add" method="post">

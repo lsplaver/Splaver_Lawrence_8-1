@@ -1,10 +1,14 @@
 ﻿@model Trip
 @{ 
     ViewData["Title"] = "Add Trip - Page 3";
+    // string userMessage = TempData?.Peek("Destination")?.ToString() ?? "";
 }
-@section SubHead
+@if (TempData.Peek("Destination").ToString() != "") // (userMessage != "")
 {
-    <h2>Add Things To Do in @TempData.Peek("Destination")</h2>
+    @section SubHead
+    {
+        <h2>Add Things To Do in @TempData.Peek("Destination").ToString()</h2>
+    }
 }
 
 <form asp-action="Add" method="post">
