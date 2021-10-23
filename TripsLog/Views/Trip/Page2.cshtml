@@ -2,7 +2,7 @@
 @{ 
     ViewData["Title"] = "Add Trip - Page 2";
 }
-@if (TempData.Peek("Accommodation").ToString() != "")
+@if (TempData.Peek("Accommodation") != null)
 {
     @section SubHead
     {
@@ -10,7 +10,7 @@
     }
 }
 
-<form asp-action="Add" method="post">
+<form asp-action="AddPage2" method="post">
     <div class="form-group">
         <label asp-for="AccommodationPhone">Phone Number</label>
         <input asp-for="AccommodationPhone" class="form-control" />
@@ -19,6 +19,6 @@
         <label asp-for="AccommodationEmail">Email Address</label>
         <input asp-for="AccommodationEmail" class="form-control" />
     </div>
-    <a class="btn btn-primary" asp-action="Add" asp-route-page="3">Next</a>
+    <button type="submit" class="btn btn-primary">Next</button>
     <a asp-action="Cancel" class="btn btn-primary">Cancel</a>
 </form>

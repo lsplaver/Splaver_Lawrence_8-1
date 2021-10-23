@@ -27,8 +27,8 @@
         {
             <tr>
                 <td>@t.Destination</td>
-                <td>@t.StartDate.ToString("MM/dd/yyyy")</td>
-                <td>@t.EndDate.ToString("MM/dd/yyyy")</td>
+                <td>@t.StartDate.ToShortDateString()</td>
+                <td>@t.EndDate.ToShortDateString()</td>
                 <td class="col-6">
                     <div class="row text-center">@t.Accommodation</div>
                     <div class="row text-center">@t.AccommodationPhone</div>
