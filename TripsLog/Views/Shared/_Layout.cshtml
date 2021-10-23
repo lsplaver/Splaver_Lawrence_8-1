@@ -6,16 +6,12 @@
     <title>@ViewData["Title"] - TripsLog</title>
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    @section Scripts
-    {
         <script src="~/lib/jquery/jquery.min.js"></script>
         <script src="~/lib/popper.js/popper.min.js"></script>
         <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
-    }
-    @RenderSection("Scripts", required: false)
 </head>
 <body>
     <div class="bg-dark container">
@@ -24,7 +20,7 @@
         </header>
     </div>
     <div class="container">
-        @RenderSection("SubHead", required: false)
+        @RenderSection("SubHead", false)
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
