@@ -1,6 +1,7 @@
 ﻿@model Trip
 @{ 
     ViewData["Title"] = "Add Trip - Page 3";
+    TempData["CurrentPage"] = 3;
 }
 @if (TempData.Peek("Destination") != null)
 {
@@ -10,7 +11,7 @@
     }
 }
 
-<form asp-action="AddPage3" method="post">
+<form asp-action="Add" method="post">
     <div class="form-group">
         <input asp-for="ThingToDo1" />
     </div>
